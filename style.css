@@ -1,0 +1,218 @@
+:root {
+    --primary-teal: #1e90ff;
+    --dark-navy: #1a2b3c;
+    --emergency-red: #dc3545;
+    --bg-light: #f8fafc;
+    --text-gray: #64748b;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--dark-navy);
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0d9488;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-gray);
+    margin: 0 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-links a.active {
+    color: #0d9488;
+    background: #f0fdfa;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.btn-emergency {
+    background: var(--emergency-red);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-outline, .btn-primary {
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+.btn-primary {
+    background: #0d9488;
+    color: white;
+    border: none;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 10%;
+    background: radial-gradient(circle at top right, #e0f2fe, transparent),
+                radial-gradient(circle at bottom left, #f0fdf4, transparent);
+}
+
+.badge {
+    display: inline-block;
+    background: #dcfce7;
+    color: #166534;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1e293b;
+}
+
+.hero h1 span {
+    color: #0d9488;
+}
+
+.hero-subtext {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary-large {
+    background: #0d9488;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-emergency-large {
+    background: var(--emergency-red);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Grids & Cards */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 5%;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Icon Background Colors */
+.teal { background: #f0fdfa; color: #0d9488; }
+.green { background: #f0fdf4; color: #166534; }
+.yellow { background: #fffbeb; color: #b45309; }
+.red { background: #fef2f2; color: #dc2626; }
+.blue-light { background: #eff6ff; color: #1d4ed8; }
+.green-dark { background: #ecfdf5; color: #047857; }
+
+.section-tag {
+    text-align: center;
+    background: #f1f5f9;
+    width: fit-content;
+    margin: 0 auto 15px;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.section-title span { color: #0d9488; }
+
+.section-desc {
+    text-align: center;
+    color: var(--text-gray);
+    margin-bottom: 50px;
+}
