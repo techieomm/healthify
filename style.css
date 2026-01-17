@@ -1,218 +1,607 @@
+/* =================================================================
+//                 HOSTELCARE MASTER CSS (style.css) - FINAL CLEAN LOOK
+// ================================================================= */
+
 :root {
-    --primary-teal: #1e90ff;
-    --dark-navy: #1a2b3c;
-    --emergency-red: #dc3545;
-    --bg-light: #f8fafc;
-    --text-gray: #64748b;
-    --white: #ffffff;
+    --color-primary: #00bcd4; /* Teal / Cyan */
+    --color-primary-light: #e6f7ff;
+    --color-primary-dark: #008ba3;
+    --color-danger: #e94e77; /* Red for emphasis/emergency */
+    --color-background-light: #f7f9fb; /* Light background for pages */
+    --color-text-dark: #333;
+    --color-text-light: #666;
+    --color-border: #ddd;
+    --font-family: 'Poppins', sans-serif;
 }
 
+/* --- Base Reset and Setup --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--bg-light);
-    color: var(--dark-navy);
+    font-family: var(--font-family);
+    background-color: var(--color-background-light);
+    color: var(--color-text-dark);
     line-height: 1.6;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #0d9488;
-}
-
-.nav-links a {
+a {
     text-decoration: none;
-    color: var(--text-gray);
-    margin: 0 15px;
-    font-size: 0.9rem;
-    font-weight: 500;
+    color: var(--color-primary);
+    transition: color 0.2s;
 }
 
-.nav-links a.active {
-    color: #0d9488;
-    background: #f0fdfa;
-    padding: 5px 12px;
-    border-radius: 20px;
-}
-
-.btn-emergency {
-    background: var(--emergency-red);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.btn-outline, .btn-primary {
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    border: 1px solid #ddd;
-}
-
-.btn-primary {
-    background: #0d9488;
-    color: white;
-    border: none;
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 100px 10%;
-    background: radial-gradient(circle at top right, #e0f2fe, transparent),
-                radial-gradient(circle at bottom left, #f0fdf4, transparent);
-}
-
-.badge {
-    display: inline-block;
-    background: #dcfce7;
-    color: #166534;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: #1e293b;
-}
-
-.hero h1 span {
-    color: #0d9488;
-}
-
-.hero-subtext {
-    max-width: 700px;
-    margin: 0 auto 40px;
-    color: var(--text-gray);
-    font-size: 1.1rem;
-}
-
-.hero-cta {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.btn-primary-large {
-    background: #0d9488;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.btn-emergency-large {
-    background: var(--emergency-red);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-/* Grids & Cards */
+/* --- Layout --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 50px 5%;
+    padding: 0 20px;
 }
 
-.grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+/* Main Content Display Logic */
+.page-section {
+    display: none;
+    padding: 40px 0;
+}
+
+.page-section.active-page-section {
+    display: block;
 }
 
 .grid-3 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
-.feature-card {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.icon-box {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-}
-
-/* Icon Background Colors */
-.teal { background: #f0fdfa; color: #0d9488; }
-.green { background: #f0fdf4; color: #166534; }
-.yellow { background: #fffbeb; color: #b45309; }
-.red { background: #fef2f2; color: #dc2626; }
-.blue-light { background: #eff6ff; color: #1d4ed8; }
-.green-dark { background: #ecfdf5; color: #047857; }
-
-.section-tag {
-    text-align: center;
-    background: #f1f5f9;
-    width: fit-content;
-    margin: 0 auto 15px;
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    color: #64748b;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
+/* --- Typography and Headings --- */
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
     margin-bottom: 10px;
 }
 
-.section-title span { color: #0d9488; }
+.section-subtext {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 30px;
+}
 
-.section-desc {
+/* --- Header and Navigation --- */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 15px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+nav a {
+    color: var(--color-text-light);
+    margin: 0 15px;
+    font-size: small;
+    padding: 2px 0;
+    border-bottom: 3px solid transparent;
+}
+
+nav a.active-link {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+}
+
+nav a:hover {
+    color: var(--color-primary);
+}
+
+.emergency-btn {
+    background-color: var(--color-danger);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.emergency-btn:hover {
+    background-color: #c73c5d;
+}
+
+/* --- Home Page Hero/Cards --- */
+.hero-section {
     text-align: center;
-    color: var(--text-gray);
-    margin-bottom: 50px;
+    padding: 60px 0;
+}
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.hero-section .highlight-text {
+    color: var(--color-primary);
+}
+.hero-buttons button {
+    padding: 12px 25px;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.hero-buttons .primary-btn {
+    background-color: var(--color-primary);
+    color: white;
+}
+.hero-buttons .primary-btn:hover {
+    background-color: var(--color-primary-dark);
+}
+.hero-buttons .secondary-btn {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+.hero-buttons .secondary-btn:hover {
+    background-color: var(--color-primary-light);
+}
+
+/* Core Feature Cards (Home Page) */
+.info-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+/* --- Symptom Checker Specific Styles --- */
+.checker-steps-container {
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.checker-step {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.checker-step.active {
+    display: block;
+    opacity: 1;
+    position: relative; 
+    transition: opacity 0.5s ease;
+}
+
+/* Step 1: Symptom List Cards */
+.symptom-list-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 25px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.symptom-list-card:hover {
+    border-color: var(--color-primary); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.symptom-icon-text {
+    display: flex;
+    align-items: center;
+}
+
+.symptom-icon-text span { 
+    font-size: 1.8rem;
+    margin-right: 15px;
+}
+
+.symptom-icon-text h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.symptom-icon-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+/* Step 2: Question Box & Answers */
+.question-box-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+.question-box-container h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--color-text-dark);
+}
+
+.answer-option-btn {
+    width: 100%;
+    padding: 15px 20px;
+    margin: 10px 0;
+    background-color: #f7f7f7;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease-in-out;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.answer-option-btn:hover {
+    background-color: var(--color-primary-light); 
+    border-color: var(--color-primary-light);
+}
+
+.answer-option-btn.selected {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary-dark);
+    font-weight: 600;
+}
+
+/* Progress Bar */
+#progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+}
+#progress-bar {
+    height: 8px;
+    width: 0%;
+    background-color: var(--color-primary);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.back-link {
+    color: var(--color-text-light);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* Step 3: Result Display */
+.result-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.highlight-result {
+    color: var(--color-danger);
+    font-weight: 700;
+}
+
+.result-details div h4 {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.result-details ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+}
+
+/* --- Medicine Scanner Styles --- */
+.upload-container, .search-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+.upload-area {
+   
+    padding: 40px 20px;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.upload-area:hover {
+    border-color: var(--color-primary);
+}
+.upload-area i {
+    font-size: 2.5rem;
+    color: var(--color-text-light);
+    margin-bottom: 10px;
+}
+.upload-area input {
+    display: none;
+}
+
+.search-field {
+    display: flex;
+}
+
+#medicine-search-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
+}
+
+#medicine-search-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.result-detail-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.detail-card {
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.detail-card h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: 8px;
+}
+.detail-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 0.9rem;
+}
+
+
+/* --- Doctors Page Styles --- */
+.doctor-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.doctor-info {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.doctor-info i {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-right: 15px;
+}
+.doctor-details h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+.doctor-details p {
+    margin: 3px 0;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+.doctor-meta {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+.doctor-meta span {
+    display: block;
+    margin-top: 5px;
+    color: var(--color-text-light);
+}
+.doctor-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+.doctor-actions .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4CAF50; /* Green */
+}
+.doctor-actions button,
+.doctor-actions a {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+.doctor-actions .call-btn {
+    background-color: #fff;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    margin-right: 10px;
+}
+.doctor-actions .book-now-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+}
+.doctor-actions .call-btn:hover { background-color: var(--color-primary-light); }
+.doctor-actions .book-now-btn:hover { background-color: var(--color-primary-dark); }
+
+.available-status {
+    display: inline-block;
+    background-color: #e0fff0;
+    color: #4CAF50;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: auto;
+}
+.busy-status {
+    display: inline-block;
+    background-color: #ffeded;
+    color: var(--color-danger);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+/* --- Auth (Sign In/Sign Up) Styles --- */
+.auth-standalone {
+    max-width: 450px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.auth-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+}
+
+.auth-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.auth-tab.active-tab {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.auth-form {
+    display: none;
+    padding-top: 20px;
+}
+
+.auth-form.active-form {
+    display: block;
+}
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* --- Emergency Call Section and Footer --- */
+.emergency-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffe8e8; 
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #ffcccc;
+    margin: 40px 0;
+}
+.emergency-box h3 {
+    color: var(--color-danger);
+    margin: 0;
+}
+.emergency-buttons button {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 15px;
+    transition: background-color 0.2s;
+}
+.emergency-main-call {
+    background-color: var(--color-danger);
+    color: white;
+}
+.ambulance-call {
+    background-color: white;
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+}
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
 }
