@@ -3,108 +3,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthify - Your Personal Health Companion</title>
+    <title>Healthify - Your Personal Health Assistant</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">
-            <span class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></span>
-            <span class="logo-text">Healthify</span>
-        </div>
-        <nav class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="./dashboard.html">Dashboard</a>
-            <a href="#">Symptoms</a>
-            <a href="#">AI Doctor</a>
-            <a href="#">Appointments</a>
-            <a href="#">Medicine Scanner</a>
-        </nav>
-        <div class="nav-buttons">
-            <button class="btn-emergency"><i class="fa-solid fa-phone"></i> Emergency 112</button>
-            <button class="btn-outline">Sign In</button>
-            <button class="btn-primary">Sign Up</button>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i> Healthify
+            </div>
+            <nav>
+                <a href="#" class="nav-link active-link" data-section="home-section">Home</a>
+                <a href="#" class="nav-link" data-section="symptom-checker-section">Symptom Checker</a>
+                <a href="#" class="nav-link" data-section="medicine-scanner-section">Medicine Scanner</a>
+                <a href="#" class="nav-link" data-section="doctors-section">Appointments</a>
+                <a href="#" class="nav-link" data-section="health-reports-section">Health Reports</a>
+            </nav>
+            <div class="auth-buttons">
+                <a href="#" id="emergency-nav-btn" class="emergency-btn " style="margin-right:10px;">Emergency</a>
+                <a href="#" id="auth-nav-btn" class="auth-btn " style="border:1px solid #00bcd4 ;padding:5px; border-radius: 5px;">Sign In </a>
+               
+            </div>
         </div>
     </header>
+<p id="welcome-user" style="margin-top:15px; font-weight:600; color:#008ba3; display:none;">
+  Welcome 👋
+</p>
 
-    <section class="hero">
-        <div class="badge">✨ Your Personal Health Companion</div>
-        <h1>Take Control of Your <span>Health Journey</span></h1>
-        <p class="hero-subtext">
-            Track vitals, check symptoms, book appointments, and get <strong>AI-powered health insights</strong>. 
-            Built for hostel students and busy citizens who prioritize their wellbeing.
-        </p>
-        <div class="hero-cta">
-            <button class="btn-primary-large">Get Started Free</button>
-            <button class="btn-emergency-large"><i class="fa-solid fa-phone"></i> Emergency 112</button>
-        </div>
-    </section>
-
-    <section class="quick-features">
-        <div class="container grid-4">
-            <div class="q-card">
-                <i class="fa-solid fa-waveform-path"></i>
-                <h3>Track Vitals</h3>
-                <p>Monitor health metrics</p>
-            </div>
-            <div class="q-card">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>Secure Data</h3>
-                <p>End-to-end encryption</p>
-            </div>
-            <div class="q-card">
-                <i class="fa-solid fa-clock"></i>
-                <h3>24/7 Access</h3>
-                <p>Anytime, anywhere</p>
-            </div>
-            <div class="q-card">
-                <i class="fa-solid fa-heart-pulse"></i>
-                <h3>Health Insights</h3>
-                <p>AI-powered analysis</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-detailed">
-        <div class="section-tag">Features</div>
-        <h2 class="section-title">Everything You Need for <span>Better Health</span></h2>
-        <p class="section-desc">A comprehensive suite of tools designed to help you take control of your health journey.</p>
+    <main>
         
-        <div class="container grid-3">
-            <div class="feature-card">
-                <div class="icon-box teal"><i class="fa-solid fa-chart-line"></i></div>
-                <h3>Vital Monitoring</h3>
-                <p>Track blood pressure, heart rate, temperature, and more with easy-to-read charts and trends.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box green"><i class="fa-solid fa-stethoscope"></i></div>
-                <h3>Symptom Checker</h3>
-                <p>AI-powered symptom analysis to help you understand your health concerns before visiting a doctor.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box yellow"><i class="fa-solid fa-calendar-days"></i></div>
-                <h3>Appointments</h3>
-                <p>Book and manage doctor appointments seamlessly. Get reminders so you never miss a visit.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box red"><i class="fa-solid fa-capsules"></i></div>
-                <h3>Medicine Scanner</h3>
-                <p>Scan medicine packages to get detailed information about dosage, side effects, and interactions.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box blue-light"><i class="fa-solid fa-chart-simple"></i></div>
-                <h3>Health Analytics</h3>
-                <p>Comprehensive health reports and analytics to track your progress over time.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box green-dark"><i class="fa-solid fa-file-pdf"></i></div>
-                <h3>PDF Reports</h3>
-                <p>Generate detailed PDF reports of your health data to share with healthcare providers.</p>
-            </div>
-        </div>
-    </section>
+        <section class="page-section active-page-section" id="home-section">
+            <div class="container">
+                <div class="hero-section">
+                    <p style="color: var(--color-primary); font-weight: 500;">Made for every citizen</p>
+                    <h1>Your Personal <span class="highlight-text">Health Assistant</span></h1>
+                    <p class="section-subtext" style="max-width: 600px; margin: 0 auto 40px;">Quick medical guidance when you need it most. Check symptoms, scan medicines, and get first-aid advice — all in one place.</p>
+                    <div class="hero-buttons">
+                        <button class="primary-btn" onclick="showPage('symptom-checker-section', this)">Start Symptom Check →</button>
+                        <button class="secondary-btn" onclick="showPage('medicine-scanner-section', this)">Scan Medicine</button>
+                    </div>
+                </div>
 
+                <h2 style="text-align: center;">What Can We Help With?</h2>
+                <p class="section-subtext" style="text-align: center;">Quick, reliable health guidance designed specifically for day-to-day life.</p>
+
+                <div class="grid-3" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="info-card" onclick="showPage('symptom-checker-section', this)">
+                        <i class="fas fa-stethoscope"></i>
+                        <h4>Symptom Checker</h4>
+                        <p>Answer simple questions to understand your symptoms and get first-aid guidance.</p>
+                    </div>
+                    <div class="info-card" onclick="showPage('medicine-scanner-section', this)">
+                        <i class="fas fa-pills" style="color: #ff7e5f;"></i>
+                        <h4>Medicine Scanner</h4>
+                        <p>Scan any medicine to know its uses, dosage, side-effects, and precautions.</p>
+                    </div>
+                    <div class="info-card" onclick="handleEmergencyCall('112')">
+                        <i class="fas fa-phone-alt" style="color: var(--color-danger);"></i>
+                        <h4>Emergency Help</h4>
+                        <p>Quick access to emergency numbers and nearby hospital information.</p>
+                    </div>
+                    <div class="info-card" onclick="showPage('health-tips-section', this)">
+                        <i class="fas fa-heart"></i>
+                        <h4>Health Tips</h4>
+                        <p>Daily tips for staying healthy in hostel life.</p>
+                    </div>
+                </div>
+                
+                <h2 style="text-align: center; margin-top: 50px;">Quick Health Tips</h2>
+                <p class="section-subtext" style="text-align: center;">Simple habits for a healthier hostel life</p>
+                <div class="grid-3">
+                    <div class="info-card">
+                        <i class="fas fa-tint" style="color: #1a73e8;"></i>
+                        <h4>Stay Hydrated</h4>
+                        <p>Drink at least 8 glasses of water daily. Set reminders if needed.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-bed" style="color: #8e44ad;"></i>
+                        <h4>Sleep Well</h4>
+                        <p>Aim for 7-8 hours of sleep. Avoid screens before bed.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-apple-alt" style="color: #e74c3c;"></i>
+                        <h4>Eat Clean</h4>
+                        <p>Avoid mess food that looks or smells off. When in doubt, skip it.</p>
+                    </div>
+                </div>
+
+                <div class="emergency-box">
+                    <div class="emergency-text">
+                        <i class="fas fa-phone-volume"></i>
+                        <div>
+                            <h3>Emergency?</h3>
+                            <p>If you're facing a medical emergency, call for help immediately.</p>
+                        </div>
+                    </div>
+                    <div class="emergency-buttons">
+                        <button class="emergency-main-call" onclick="handleEmergencyCall('112')">Call 112 (Emergency)</button>
+                        <button class="ambulance-call" onclick="handleEmergencyCall('102')">Call 102 (Ambulance)</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="page-section" id="symptom-checker-section">
+            <div class="container checker-container">
+                <h2>What Are You Experiencing?</h2>
+                <p class="section-subtext">Select your primary symptom to get started</p>
+
+                <div class="checker-steps-container">
+
+                    <div id="step-1" class="checker-step active">
+                        <div id="symptom-list-container">
+                            </div>
+                        <p class="disclaimer" style="margin-top: 20px; font-size: 0.9rem;">
+                            <i class="fas fa-exclamation-triangle"></i> **Disclaimer:** This tool provides guidance only. It is not a substitute for professional medical advice.
+                        </p>
+                    </div>
+
+                    <div id="step-2" class="checker-step">
+                        <p class="back-link" onclick="goBackToStep1()">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </p>
+                        <h3 id="question-disease-title" style="margin-top: 10px;">Symptom Check</h3>
+                        <p class="section-subtext">Answer a few questions for personalized guidance</p>
+                        
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 15px;">
+                            <span id="question-counter" style="font-weight: 600; font-size: 0.9rem;">Question 1 of 3</span>
+                            <span id="progress-percentage" style="font-size: 0.9rem;">33%</span>
+                        </div>
+
+                        <div id="progress-bar-container" style="margin-bottom: 30px;">
+                            <div id="progress-bar"></div>
+                        </div>
+
+                        <div class="question-box-container">
+                            <h4 id="current-question-text">What is your question?</h4>
+                            <div id="answer-options">
+                                </div>
+                        </div>
+                    </div>
+
+                    <div id="step-3" class="checker-step">
+                        <p class="back-link" onclick="goBackToStep1()">
+                            <i class="fas fa-arrow-left"></i> Restart Symptom Check
+                        </p>
+                        <h3>3. Diagnosis Guidance</h3>
+                        
+                        <div class="result-box">
+                            <h4 id="result-title" style="font-size: 1.5rem;">Predicted: <span class="highlight-result">Viral Infection</span></h4>
+                            <p id="result-description" class="section-subtext">Likely a common, self-limiting viral infection that should clear up with rest.</p>
+                        </div>
+                        
+                        <div class="result-details grid-3">
+                            <div class="info-card">
+                                <h4>Possible Causes</h4>
+                                <ul id="result-causes"><li>Viral exposure</li></ul>
+                            </div>
+                            <div class="info-card">
+                                <h4>Prevention Tips</h4>
+                                <ul id="result-prevention"><li>Maintain good hygiene</li></ul>
+                            </div>
+                            <div class="info-card">
+                                <h4>Home/OTC Cure</h4>
+                                <ul id="result-cure"><li>Rest, Hydration, Crocin</li></ul>
+                            </div>
+                        </div>
+                        
+                        <button class="primary-btn" onclick="showPage('doctors-section', this)" style="width: 100%; margin-top: 30px; height:80px; font-size: larger;">
+                            <i class="fas fa-user-md"></i> Consult a Doctor Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="page-section" id="medicine-scanner-section">
+            <div class="container">
+                <h2>Medicine Scanner</h2>
+                <p class="section-subtext">Upload a photo of any medicine or search by name to get detailed information</p>
+                
+                <div class="upload-container">
+                    <h3>Upload Medicine Image</h3>
+                    <label for="file-upload" class="upload-area">
+                        <i class="fas fa-camera" style="margin-left: 47%;"></i>
+                        <p style="font-weight: 600;">Click to upload photo</p>
+                        <p style="font-size: 0.9rem; color: var(--color-text-light);">Take a clear photo of the medicine strip or box</p>
+                        <input type="file" id="file-upload" accept="image/*" onchange="handleImageUpload(event)">
+                    </label>
+                </div>
+
+                <div class="search-container">
+                    <h3>Or Search by Name</h3>
+                    <div class="search-field">
+                        <input type="text" id="medicine-search-input" placeholder="Enter medicine name (e.g., Crocin, Dolo)">
+                        <button id="medicine-search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                
+                <div id="medicine-results" style="display: none; margin-top: 30px;">
+                    <h3 id="result-medicine-name" style="color: var(--color-primary-dark);">Crocin (500mg)</h3>
+                    <p style="color: var(--color-text-light);" id="result-properties">Active Ingredient: Paracetamol. Classification: Analgesic and Antipyretic.</p>
+                    
+                    <div class="result-detail-cards">
+                        <div class="detail-card">
+                            <h4>Key Uses</h4>
+                            <ul id="result-uses"></ul>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Typical Dosage</h4>
+                            <ul id="result-dosage"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="no-result" style="display: none; text-align: center; padding: 30px; background-color: #fff; border-radius: 12px;">
+                    <i class="fas fa-exclamation-circle" style="color: var(--color-danger); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <p style="font-weight: 600;">Medicine not found in database or name misspelt.</p>
+                    <p style="font-size: 0.9rem;">Please check the spelling or consult a hostel warden/doctor.</p>
+                </div>
+
+            </div>
+        </section>
+        
+        <section class="page-section" id="doctors-section">
+            <div class="container">
+                <h2>Find Doctors</h2>
+                <p class="section-subtext">Nearby doctors available for consultation</p>
+
+                <div class="doctor-card">
+                    <div class="doctor-info">
+                        <i class="fas fa-stethoscope"></i>
+                        <div class="doctor-details">
+                            <h4 style="margin-bottom: 5px;">Dr. Rahul Verma</h4>
+                            <p>Dermatologist | 12 years experience</p>
+                        </div>
+                        <span class="available-status">Available</span>
+                    </div>
+                    <div class="doctor-meta">
+                        <span style="color: gold;"><i class="fas fa-star"></i> 4.8 (200 reviews)</span>
+                        <span><i class="fas fa-clock"></i> 10:00 AM - 6:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Skin Care Clinic, Sector 15</span>
+                    </div>
+                    <div class="doctor-actions">
+                        <div class="price">₹500</div>
+                        <div>
+                            <a href="tel:1234567890" class="call-btn"><i class="fas fa-phone"></i> Call</a>
+                            <button class="book-now-btn" data-doctor="Dr. Rahul Verma" style="height: 45px; font-size: medium;">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-info">
+                        <i class="fas fa-child"></i>
+                        <div class="doctor-details">
+                            <h4 style="margin-bottom: 5px;">Dr. Sneha Gupta</h4>
+                            <p>Pediatrician | 6 years experience</p>
+                        </div>
+                        <span class="available-status">Available</span>
+                    </div>
+                    <div class="doctor-meta">
+                        <span style="color: gold;"><i class="fas fa-star"></i> 4.7 (150 reviews)</span>
+                        <span><i class="fas fa-clock"></i> 9:00 AM - 1:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Children Hospital, Main Road</span>
+                    </div>
+                    <div class="doctor-actions">
+                        <div class="price">₹450</div>
+                        <div>
+                            <a href="tel:1234567891" class="call-btn"><i class="fas fa-phone"></i> Call</a>
+                            <button class="book-now-btn" data-doctor="Dr. Sneha Gupta" style="height: 45px; font-size: medium;">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-info">
+                        <i class="fas fa-user-md"></i>
+                        <div class="doctor-details">
+                            <h4 style="margin-bottom: 5px;">Dr. Priya Sharma</h4>
+                            <p>General Physician | 8 years experience</p>
+                        </div>
+                        <span class="available-status">Available</span>
+                    </div>
+                    <div class="doctor-meta">
+                        <span style="color: gold;"><i class="fas fa-star"></i> 4.5 (120 reviews)</span>
+                        <span><i class="fas fa-clock"></i> 9:00 AM - 5:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> City Hospital, MG Road</span>
+                    </div>
+                    <div class="doctor-actions">
+                        <div class="price">₹300</div>
+                        <div>
+                            <a href="tel:1234567892" class="call-btn"><i class="fas fa-phone"></i> Call</a>
+                            <button class="book-now-btn" data-doctor="Dr. Priya Sharma" style="height: 45px; font-size: medium;">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-info">
+                        <i class="fas fa-ear"></i>
+                        <div class="doctor-details">
+                            <h4 style="margin-bottom: 5px;">Dr. Vikram Patel</h4>
+                            <p>ENT Specialist | 10 years experience</p>
+                        </div>
+                        <span class="busy-status">Busy</span>
+                    </div>
+                    <div class="doctor-meta">
+                        <span style="color: gold;"><i class="fas fa-star"></i> 4.4 (95 reviews)</span>
+                        <span><i class="fas fa-clock"></i> 11:00 AM - 7:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> ENT Hospital, Civil Lines</span>
+                    </div>
+                    <div class="doctor-actions">
+                        <div class="price">₹350</div>
+                        <div>
+                            <a href="tel:1234567893" class="call-btn"><i class="fas fa-phone"></i> Call</a>
+                            <button class="book-now-btn" data-doctor="Dr. Vikram Patel" style="height: 45px; font-size: medium;" disabled>Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <section class="page-section" id="health-tips-section">
+            <div class="container">
+                <h2>Health Tips</h2>
+                <p class="section-subtext">Simple habits for a healthier hostel life</p>
+                <div class="grid-3">
+                    <div class="info-card">
+                        <i class="fas fa-tint" style="color: #1a73e8;"></i>
+                        <h4>Stay Hydrated</h4>
+                        <p>Drink at least 8 glasses of water daily. Set reminders if needed.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-bed" style="color: #8e44ad;"></i>
+                        <h4>Sleep Well</h4>
+                        <p>Aim for 7-8 hours of sleep. Avoid screens before bed.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-apple-alt" style="color: #e74c3c;"></i>
+                        <h4>Eat Clean</h4>
+                        <p>Avoid mess food that looks or smells off. When in doubt, skip it.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-band-aid" style="color: #f39c12;"></i>
+                        <h4>First Aid Kit</h4>
+                        <p>Keep a basic kit: band-aids, antiseptic, paracetamol, ORS, thermometer.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-hands-wash" style="color: #2ecc71;"></i>
+                        <h4>Wash Hands</h4>
+                        <p>Wash hands before eating and after using the bathroom.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-brain" style="color: #e84393;"></i>
+                        <h4>Mental Health</h4>
+                        <p>Feeling stressed? Talk to friends, take breaks, exercise.</p>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 50px;"><i class="fas fa-water" style="color: var(--color-primary);"></i> Water Intake Guide</h3>
+                <div class="info-card" style="margin-top: 20px;">
+                    <p>Aim for 8-10 glasses of water daily. Here's when to drink:</p>
+                    <ul style="list-style-type: none; padding-left: 0; margin-top: 10px;">
+                        <li style="margin-bottom: 5px;"><i class="fas fa-sun" style="color: orange; margin-right: 8px;"></i> **Morning:** 2 glasses after waking up</li>
+                        <li style="margin-bottom: 5px;"><i class="fas fa-utensils" style="color: brown; margin-right: 8px;"></i> **Before meals:** 1 glass 30 mins before eating</li>
+                        <li style="margin-bottom: 5px;"><i class="fas fa-book-open" style="color: gray; margin-right: 8px;"></i> **Study breaks:** 1 glass every hour</li>
+                        <li style="margin-bottom: 5px;"><i class="fas fa-moon" style="color: navy; margin-right: 8px;"></i> **Night:** 1 glass before bed (optional)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="auth-section">
+            <div class="auth-standalone">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <i class="fas fa-heart" style="font-size: 2.5rem; color: var(--color-primary);"></i>
+                    <h3 style="margin-top: 10px;">HealthBuddy</h3>
+                    <p style="color: var(--color-text-light);">Your health companion</p>
+                </div>
+                
+                <div class="auth-tabs">
+                    <span class="auth-tab active-tab" data-tab="sign-in">Sign In</span>
+                    <span class="auth-tab" data-tab="sign-up">Sign Up</span>
+                </div>
+                
+                <div id="sign-in-form" class="auth-form active-form">
+                    <label for="signin-email">Email</label>
+                    <input type="email" id="signin-email" placeholder="Enter your email">
+                    
+                    <label for="signin-password">Password</label>
+                    <input type="password" id="signin-password" placeholder="Enter your password">
+                    
+                    <button onclick="alert('Sign In functionality simulated!')">Sign In</button>
+                </div>
+                
+                <div id="sign-up-form" class="auth-form">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name">
+
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email">
+                    
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password">
+                    
+                    <button onclick="alert('Sign Up functionality simulated!')">Sign Up</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <section class="page-section" id="health-reports-section">
+  <div class="container">
+    <h2>My Health Reports</h2>
+    <p class="section-subtext">Track and manage your health history</p>
+
+    <div class="info-card">
+      <h4>Add New Report</h4>
+      <input type="text" id="report-title" placeholder="Report title (e.g. Blood Test)">
+      <input type="date" id="report-date">
+      <textarea id="report-notes" placeholder="Notes / Summary"></textarea>
+      <button class="primary-btn" onclick="addHealthReport()">Save Report</button>
+    </div>
+
+    <div id="reports-list" class="grid-3" style="margin-top:30px;"></div>
+  </div>
+</section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">HostelCare</div>
+            <p>Your health companion for hostel life</p>
+            <p class="disclaimer">Disclaimer: This app provides general health information only. It is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
